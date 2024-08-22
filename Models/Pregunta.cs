@@ -6,4 +6,6 @@ public class Pregunta{
     public int IdDificultad {get;  set;}
 
     public static string Enunciado {get; set;}
+
+    public string Foto {get; set;}
 }

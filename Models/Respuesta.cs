@@ -8,4 +8,6 @@ public class Respuesta{
     public static string Contenido { get; set;}
 
     public bool Correcta {get; set;}
+
+    public string Foto {get; set;}
 }
