@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+   box-sizing: border-box;
+   font-family: 'Poppins';
+}
+
+body {
+   margin: 0;
+   padding: 0;
+   background-color: #34495e;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   overflow: hidden;
+}
+
+.container {
+   display: flex;
+   justify-content: center;
+   width: 400px;
+   height: 400px;
+   border-radius: 50%;
+   border: 5px solid #a59a84;
+   position: relative;
+   overflow: hidden;
+   transition: all 5s ease-in-out;
+}
+
+.container div {
+   height: 50%;
+   width: 200px;
+   position: absolute;
+   clip-path: polygon(100% 0, 50% 100%, 0 0);
+   transform-origin: bottom;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: #fff;
+}
+
+.container .one {
+   background-color: #02e26d;
+   rotate: 0deg;
+}
+.container .two {
+   background-color: #fde026;
+   transform: rotate(calc(360deg / 7 * 1));
+}
+.container .three {
+   background-color: #ff9000;
+   transform: rotate(calc(360deg / 7 * 2));
+   /* transform: rotate(90deg); */
+}
+.container .four {
+   background-color: #ff2330;
+   transform: rotate(calc(360deg / 7 * 3));
+   /* transform: rotate(135deg); */
+}
+.container .five {
+   background-color: #fe53b6;
+   transform: rotate(calc(360deg / 7 * 4));
+   /* transform: rotate(180deg); */
+}
+.container .six {
+   background-color: #b64cd6;
+   transform: rotate(calc(360deg / 7 * 5));
+   /* transform: rotate(225deg); */
+}
+.container .seven {
+   background-color: #027bdb;
+   transform: rotate(calc(360deg / 7 * 6));
+   /* transform: rotate(270deg); */
+}
+.container .eight {
+   background: linear-gradient(to right, #ff7e5f, #feb47b, #ff6f61, #d4a5a5);
+   /* transform: rotate(360deg / 7 * 7); */
+   /* transform: rotate(315deg); */
+   animation: anim 1s infinite;
+}
+
+@keyframes anim {
+   50% {
+      /* background: color-mix(in hsl, lightblue, red); */
+      background-position: 100px 100px;
+   }
+}
+
+.arrow {
+   position: absolute;
+   top: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   color: #fff;
+}
+
+.arrow::before {
+   content: '\1F817';
+   font-size: 50px;
+}
+
+#spin {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 1;
+   text-transform: uppercase;
+   border: 4px solid #fff;
+   font-size: 20px;
+   color: #a2a2a2;
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+   cursor: pointer;
+   transition: border 0.2s;
+}
+
+#spin:hover {
+   border-color: #a2a2a2;
+}
