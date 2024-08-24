@@ -1,40 +1,39 @@
---HAY QUE TERMINARLA 
-
-
 CREATE DATABASE PreguntadOrt;
+
 
 USE PreguntadOrt;
 
+-- CREACIÓN DE TABLAS
+
 CREATE TABLE Categorias (
-    IdCategoria INT PRIMARY KEY AUTO_INCREMENT,
+    IdCategoria INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
     Nombre VARCHAR(255) NOT NULL,
     Foto VARCHAR(255)
 );
 
 CREATE TABLE Dificultades (
-    IdDificultad INT PRIMARY KEY AUTO_INCREMENT,
+    IdDificultad INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
     Nombre VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Preguntas (
-    IdPregunta INT PRIMARY KEY AUTO_INCREMENT,
-    IdCategoria INT,
-    IdDificultad INT,
+    IdPregunta INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
+    IdCategoria INT NOT NULL FOREIGN KEY REFERENCES Categorias(IdCategoria),
+    IdDificultad INT NOT NULL FOREIGN KEY REFERENCES Dificultades(IdDificultad),
     Enunciado VARCHAR(500) NOT NULL,
     Foto VARCHAR(255),
-    FOREIGN KEY (IdCategoria) REFERENCES Categorias(IdCategoria),
-    FOREIGN KEY (IdDificultad) REFERENCES Dificultades(IdDificultad)
 );
 
 CREATE TABLE Respuestas (
-    IdRespuesta INT PRIMARY KEY AUTO_INCREMENT,
-    IdPregunta INT,
-    Opcion INT,
+    IdRespuesta INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
+    IdPregunta INT NOT NULL FOREIGN KEY REFERENCES Preguntas(IdPregunta),
+    Opcion INT NOT NULL,
     Contenido VARCHAR(500) NOT NULL,
     Correcta BIT NOT NULL,
     Foto VARCHAR(255),
-    FOREIGN KEY (IdPregunta) REFERENCES Preguntas(IdPregunta)
 );
+
+-- INSERTS
 
 -- Insertar categorías
 INSERT INTO Categorias (Nombre) VALUES 
@@ -53,13 +52,14 @@ INSERT INTO Dificultades (Nombre) VALUES
 ('Difícil');
 
 -- Insertar preguntas y respuestas
--- Ciencia
+
 INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
+-- Ciencia
 (1, 1, '¿Cuál es el elemento químico más abundante en la atmósfera terrestre?'),
-(1, 2, '¿Qué órgano del cuerpo humano produce la insulina?'),
-(1, 3, '¿Cuál es el planeta más cercano al Sol?'),
-(1, 4, '¿Qué gas es esencial para la respiración?'),
-(1, 5, '¿Qué tipo de animal es un tiburón?'),
+(1, 1, '¿Qué órgano del cuerpo humano produce la insulina?'),
+(1, 2, '¿Cuál es el planeta más cercano al Sol?'),
+(1, 1, '¿Qué gas es esencial para la respiración?'),
+(1, 1, '¿Qué tipo de animal es un tiburón?'),
 
 (1, 2, '¿Cuál es el órgano principal del sistema circulatorio humano?'),
 (1, 2, '¿Qué tipo de energía es producida por el sol?'),
@@ -72,9 +72,7 @@ INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (1, 3, '¿Cuál es la función principal de la clorofila en las plantas?'),
 (1, 3, '¿Qué tipo de energía se transforma en energía química durante la fotosíntesis?'),
 (1, 3, '¿Qué gas es un producto de la fotosíntesis?'),
-
 -- Historia
-INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (2, 1, '¿En qué año comenzó la Segunda Guerra Mundial?'),
 (2, 1, '¿Quién fue el primer presidente de los Estados Unidos?'),
 (2, 1, '¿En qué país tuvo lugar la Revolución Francesa?'),
@@ -92,9 +90,7 @@ INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (2, 3, '¿En qué año se descubrió América?'),
 (2, 3, '¿Qué evento histórico se conoce como la caída del Imperio Romano de Occidente?'),
 (2, 3, '¿Cuál fue el conflicto principal en la Guerra de Secesión Americana?'),
-
 -- Deportes
-INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (3, 1, '¿En qué deporte se utiliza una pelota y un bate?'),
 (3, 1, '¿Cuál es el país con más copas mundiales de fútbol ganadas?'),
 (3, 1, '¿Quién es conocido como "El Rey del Fútbol"?'),
@@ -112,9 +108,7 @@ INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (3, 3, '¿Qué país ha ganado más medallas en los Juegos Olímpicos de invierno?'),
 (3, 3, '¿Cuál es el récord mundial de los 100 metros lisos?'),
 (3, 3, '¿Qué deportista es conocido como "El Hombre Araña" del baloncesto?'),
-
 -- Cine
-INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (4, 1, '¿Quién protagonizó la película "Titanic" de 1997?'),
 (4, 1, '¿Cuál es el nombre del mago protagonista de la saga de libros escrita por J.K. Rowling?'),
 (4, 1, '¿Qué película animada cuenta la historia de un león llamado Simba?'),
@@ -132,9 +126,7 @@ INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (4, 3, '¿Qué director es conocido por sus películas en blanco y negro?'),
 (4, 3, '¿Cuál es el nombre del protagonista en la película "El Padrino"?'),
 (4, 3, '¿Qué película de Alfred Hitchcock es famosa por su escena de la ducha?'),
-
 -- Geografía
-INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (5, 1, '¿Cuál es la capital de Francia?'),
 (5, 1, '¿En qué continente se encuentra el desierto del Sahara?'),
 (5, 1, '¿Cuál es el río más largo del mundo?'),
@@ -152,9 +144,7 @@ INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (5, 3, '¿Cuál es el río más largo de América del Sur?'),
 (5, 3, '¿En qué continente se encuentra el lago Victoria?'),
 (5, 3, '¿Qué ciudad es conocida como la "Venecia del Norte"?'),
-
 -- Arte
-INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (6, 1, '¿Quién pintó la Mona Lisa?'),
 (6, 1, '¿Qué famoso pintor cortó su propia oreja?'),
 (6, 1, '¿En qué museo se encuentra "La noche estrellada"?'),
@@ -172,9 +162,7 @@ INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (6, 3, '¿Qué artista es conocido por sus esculturas en mármol, como "David"?'),
 (6, 3, '¿Qué técnica artística se utiliza en la creación de mosaicos?'),
 (6, 3, '¿Cuál es el nombre del estilo arquitectónico que caracterizó las iglesias góticas?'),
-
 -- Cultura General
-INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (7, 1, '¿Cuál es la capital de España?'),
 (7, 1, '¿Qué idioma se habla en Brasil?'),
 (7, 1, '¿Quién escribió "Cien años de soledad"?'),
