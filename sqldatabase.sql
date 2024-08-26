@@ -198,3 +198,5 @@ BEGIN
 	ELSE
 		SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad AND IdCategoria = @idCategoria;
 END;
+
+SELECT * FROM Respuestas
