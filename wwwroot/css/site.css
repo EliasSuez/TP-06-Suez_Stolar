@@ -1,10 +1,13 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+   font-family: 'Positive';
+   src: url('../../fonts/PositiveForward.otf');
+}
 
 * {
    box-sizing: border-box;
-   font-family: 'Poppins';
+   font-family: 'Positive';
 }
 
 body {
@@ -12,6 +15,7 @@ body {
    padding: 0;
    background-color: #34495e;
    display: flex;
+   flex-wrap: wrap;
    align-items: center;
    justify-content: center;
    overflow: hidden;
@@ -26,8 +30,6 @@ body {
    position: relative;
    overflow: hidden;
    transition: all 5s ease-in-out;
-   margin-top: 50%;
-   
 }
 
 .container div {
@@ -104,8 +106,6 @@ body {
 
 #spin {
    position: absolute;
-   top: 40%;
-   left: 46.5%;
    z-index: 1;
    text-transform: uppercase;
    border: 4px solid #fff;
@@ -120,4 +120,56 @@ body {
 
 #spin:hover {
    border-color: #a2a2a2;
+}
+
+main {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   height: 100vh;
+}
+
+.button {
+   all: unset;
+   background-color: #ef9b38;
+   color: white;
+   padding: 15px 100px;
+   border-radius: 50px;
+   font-size: 2.5rem;
+   box-shadow: inset 0 -10px 8px #00000033;
+   cursor: pointer;
+   transition: all .1s;
+}
+.configurar{
+   padding: 10px 100px;
+}
+.button:hover{
+   scale: 1.05;
+   background-color: #da8e38;
+}
+
+.camina{
+   position: absolute;
+   bottom: -30px;
+   right: -130px;
+   width: 200px;
+   animation: caminando 15s infinite linear;
+   animation-delay: 2s;
+}
+
+.piedra{
+   width: 150px;
+   right: -150px;
+   animation-delay: 3s;   
+}
+
+@keyframes caminando {
+   0%{
+
+   }
+   100%{
+      right: 100vw;
+   }
 }
