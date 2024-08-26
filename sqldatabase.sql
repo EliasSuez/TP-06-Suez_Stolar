@@ -3,6 +3,24 @@ CREATE DATABASE PreguntadOrt;
 
 USE PreguntadOrt;
 
+-- SP
+
+GO;
+CREATE PROCEDURE SP_ObtenerPreguntas
+	@idDificultad INT = -1,
+	@idCategoria INT = -1
+AS
+BEGIN
+	IF (@idDificultad = -1 AND @idCategoria = -1)
+		SELECT * FROM Preguntas;
+	ELSE IF (@idDificultad = -1)
+		SELECT * FROM Preguntas WHERE IdCategoria = @idCategoria;
+	ELSE IF (@idCategoria = -1)
+		SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad;
+	ELSE
+		SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad AND IdCategoria = @idCategoria;
+END;
+
 -- CREACIÓN DE TABLAS
 
 CREATE TABLE Categorias (
@@ -180,23 +198,3 @@ INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (7, 3, '¿Quién es el autor de la teoría de la relatividad?'),
 (7, 3, '¿Qué país es conocido por su sistema de monarquía constitucional?'),
 (7, 3, '¿Cuál es la capital de Canadá?');
-
--- SP
-
-GO;
-CREATE PROCEDURE SP_ObtenerPreguntas
-	@idDificultad INT = -1,
-	@idCategoria INT = -1
-AS
-BEGIN
-	IF (@idDificultad = -1 AND @idCategoria = -1)
-		SELECT * FROM Preguntas;
-	ELSE IF (@idDificultad = -1)
-		SELECT * FROM Preguntas WHERE IdCategoria = @idCategoria;
-	ELSE IF (@idCategoria = -1)
-		SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad;
-	ELSE
-		SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad AND IdCategoria = @idCategoria;
-END;
-
-SELECT * FROM Respuestas

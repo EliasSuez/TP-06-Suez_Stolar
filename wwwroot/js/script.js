@@ -2,8 +2,8 @@ const OPTIONS_CANT = 7; // Del 0 al 6
 const ROTATION_INTENSITY = 10; // 1 = 1 vuelta
 const ROTATION = ROTATION_INTENSITY * 360;
 
-const container = document.querySelector('.container');
-const division = container.querySelectorAll('div');
+const wheel = document.querySelector('.wheel');
+const division = wheel.querySelectorAll('div');
 const btn = document.getElementById('spin');
 const main = document.querySelector('main');
 const form = main.querySelector('form');
@@ -12,7 +12,7 @@ let i = 1;
 
 btn.onclick = function () {
    let number = getNumber();
-   container.style.rotate = number[1] + ROTATION * i + 'deg';
+   wheel.style.rotate = number[1] + ROTATION * i + 'deg';
    console.log(number[0]);
    // setTimeout(() => {
    // container.style.top = '-100px';

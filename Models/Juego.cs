@@ -1,8 +1,8 @@
 public class Juego
 {
-    private static string? username;
-    private static int puntajeActual;
-    private static int cantidadPreguntasCorrectas;
+    public static string? username { get; private set; }
+    public static int puntajeActual { get; private set; }
+    public static int cantidadPreguntasCorrectas { get; private set; }
     public static List<Pregunta> preguntas { get; private set; }
     private static List<Respuesta> respuestas;
 
@@ -23,18 +23,17 @@ public class Juego
         return BD.ObtenerDificultades();
     }
 
-    public static void CargarPartida(string username, int dificultad, int categoria)
+    public static void CargarPartida(string user, int dificultad, int categoria)
     {
         preguntas = BD.ObtenerPreguntas(dificultad, categoria);
         respuestas = BD.ObtenerRespuestas(preguntas);
+        username = user;
     }
 
-    public static Pregunta? ObtenerProximaPregunta()
+    public static Pregunta ObtenerProximaPregunta()
     {
-        Pregunta? p = null;
         Random rand = new Random();
-        if (preguntas.Count() > 0)
-            p = preguntas[rand.Next(0, preguntas.Count())];
+        Pregunta p = preguntas[rand.Next(0, preguntas.Count())];
         return p;
     }
 

@@ -7,5 +7,5 @@ public class Pregunta{
 
     public string Enunciado {get; set;}
 
-    public string Foto {get; set;}
+    public string? Foto {get; set;}
 }

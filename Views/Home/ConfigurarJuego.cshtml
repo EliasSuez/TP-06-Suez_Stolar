@@ -1,11 +1,49 @@
-<body>
-    <main>
-        <img
-            src="~/img/Logo.webp"
-            class="m-5"
-        />
-        <a href='@Url.Action("Wheel", "Home")' class="button">JUGAR</a>
-        <img src="~/img/hist.gif" class="camina" />
-        <img src="~/img/piedra.webp" class="camina piedra" />
-    </main>
-</body>
+@* <img src="~/img/Logo.webp" class="m-5" />
+<a href='@Url.Action("Wheel", "Home")' class="button">JUGAR</a>
+<img src="~/img/hist.gif" class="camina" />
+<img src="~/img/piedra.webp" class="camina piedra" /> *@
+<form action='@Url.Action("Comenzar")' method="get" class="container">
+    <h1 class="text-white">Dificultad</h1>
+    <div class="row justify-content-center">
+        @foreach (Dificultad d in ViewBag.dificultades)
+        {
+            <input type="radio" name="dif" id="@d.Nombre" class="configInputs" value="@d.IdDificultad" />
+            <label for="@d.Nombre" class="configLabels col button">@d.Nombre</label>
+        }
+    </div>
+    <h1 class="text-white">Categoría</h1>
+    <div class="row justify-content-center">
+        @foreach (Categoria c in ViewBag.categorias)
+        {
+            <input type="radio" name="cat" id="@c.Nombre" class="configInputs" value="@c.IdCategoria" />
+            <label for="@c.Nombre" class="configLabels col button">
+                @if (c.Foto == null)
+                {
+                    @c.Nombre
+                }
+                else
+                {
+                    <img src="@c.Foto" href="" />
+                }
+            </label>
+        }
+    </div>
+    <div class="row justify-content-center">
+        <div class="input-group mb-3 w-25">
+            <span class="input-group-text" id="basic-addon1">&commat;</span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                aria-describedby="basic-addon1" required id="username" name="username">
+        </div>
+    </div>
+    <input type="submit" value="Jugar!" class="button">
+</form>
+<script>
+    document.querySelectorAll('input[type="radio"]').forEach(t => {
+        t.addEventListener("click", e => {
+            e.preventDefault()
+            setTimeout(() => {
+                t.checked = !t.checked
+            }, 0)
+        })
+    })
+</script>
