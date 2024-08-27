@@ -198,3 +198,192 @@ INSERT INTO Preguntas (IdCategoria, IdDificultad, Enunciado) VALUES
 (7, 3, '¿Quién es el autor de la teoría de la relatividad?'),
 (7, 3, '¿Qué país es conocido por su sistema de monarquía constitucional?'),
 (7, 3, '¿Cuál es la capital de Canadá?');
+
+-- Respuestas para Ciencia
+INSERT INTO Respuestas (IdPregunta, Opcion, Contenido, Correcta) VALUES
+(6, 1, 'Hierro', 1),
+(6, 2, 'Cobre', 0),
+(6, 3, 'Plomo', 0),
+(6, 4, 'Zinc', 0),
+
+(7, 1, 'Agua', 1),
+(7, 2, 'Aceite', 0),
+(7, 3, 'Alcohol', 0),
+(7, 4, 'Mercurio', 0),
+
+(8, 1, 'H2O', 1),
+(8, 2, 'CO2', 0),
+(8, 3, 'NaCl', 0),
+(8, 4, 'O2', 0),
+
+(9, 1, 'Protones y neutrones', 1),
+(9, 2, 'Electrones y protones', 0),
+(9, 3, 'Neutrones y electrones', 0),
+(9, 4, 'Quarks', 0),
+
+(10, 1, 'Mitocondria', 1),
+(10, 2, 'Cloroplasto', 0),
+(10, 3, 'Ribosoma', 0),
+(10, 4, 'Núcleo', 0);
+
+-- Respuestas para Historia
+INSERT INTO Respuestas (IdPregunta, Opcion, Contenido, Correcta) VALUES
+(26, 1, 'Imperio Inca', 1),
+(26, 2, 'Imperio Azteca', 0),
+(26, 3, 'Imperio Maya', 0),
+(26, 4, 'Imperio Olmeca', 0),
+
+(27, 1, '1945', 1),
+(27, 2, '1939', 0),
+(27, 3, '1918', 0),
+(27, 4, '1923', 0),
+
+(28, 1, 'Guerra Fría', 1),
+(28, 2, 'Primera Guerra Mundial', 0),
+(28, 3, 'Segunda Guerra Mundial', 0),
+(28, 4, 'Guerra de Corea', 0),
+
+(29, 1, '1776', 1),
+(29, 2, '1783', 0),
+(29, 3, '1791', 0),
+(29, 4, '1812', 0),
+
+(30, 1, 'Revolución Francesa', 1),
+(30, 2, 'Revolución Americana', 0),
+(30, 3, 'Revolución Rusa', 0),
+(30, 4, 'Revolución Mexicana', 0);
+
+-- Respuestas para Deportes
+INSERT INTO Respuestas (IdPregunta, Opcion, Contenido, Correcta) VALUES
+(46, 1, 'Tenis', 1),
+(46, 2, 'Fútbol', 0),
+(46, 3, 'Baloncesto', 0),
+(46, 4, 'Atletismo', 0),
+
+(47, 1, 'Usain Bolt', 1),
+(47, 2, 'Michael Phelps', 0),
+(47, 3, 'Carl Lewis', 0),
+(47, 4, 'Jesse Owens', 0),
+
+(48, 1, 'Michael Jordan', 1),
+(48, 2, 'Kobe Bryant', 0),
+(48, 3, 'LeBron James', 0),
+(48, 4, 'Shaquille O\'Neal', 0),
+
+(49, 1, 'Maratón', 1),
+(49, 2, 'Cien metros planos', 0),
+(49, 3, 'Salto con pértiga', 0),
+(49, 4, 'Lanzamiento de jabalina', 0),
+
+(50, 1, 'Mundial de Fútbol', 1),
+(50, 2, 'Juegos Olímpicos', 0),
+(50, 3, 'Copa América', 0),
+(50, 4, 'Eurocopa', 0);
+
+-- Respuestas para Cine
+INSERT INTO Respuestas (IdPregunta, Opcion, Contenido, Correcta) VALUES
+(66, 1, 'Los Vengadores', 1),
+(66, 2, 'El Caballero Oscuro', 0),
+(66, 3, 'Titanic', 0),
+(66, 4, 'Avatar', 0),
+
+(67, 1, 'Peter Jackson', 1),
+(67, 2, 'Christopher Nolan', 0),
+(67, 3, 'James Cameron', 0),
+(67, 4, 'Steven Spielberg', 0),
+
+(68, 1, 'La la land', 1),
+(68, 2, 'El Rey León', 0),
+(68, 3, 'Coco', 0),
+(68, 4, 'Toy Story', 0),
+
+(69, 1, 'Heath Ledger', 1),
+(69, 2, 'Joaquin Phoenix', 0),
+(69, 3, 'Jack Nicholson', 0),
+(69, 4, 'Mark Hamill', 0),
+
+(70, 1, 'El Padrino', 1),
+(70, 2, 'Apocalypse Now', 0),
+(70, 3, 'Scarface', 0),
+(70, 4, 'Goodfellas', 0);
+
+-- Respuestas para Geografía
+INSERT INTO Respuestas (IdPregunta, Opcion, Contenido, Correcta) VALUES
+(86, 1, 'Everest', 1),
+(86, 2, 'K2', 0),
+(86, 3, 'Kangchenjunga', 0),
+(86, 4, 'Lhotse', 0),
+
+(87, 1, 'Lago Baikal', 1),
+(87, 2, 'Lago Superior', 0),
+(87, 3, 'Lago Victoria', 0),
+(87, 4, 'Lago Tanganica', 0),
+
+(88, 1, 'África', 1),
+(88, 2, 'Asia', 0),
+(88, 3, 'América del Sur', 0),
+(88, 4, 'Europa', 0),
+
+(89, 1, 'Australia', 1),
+(89, 2, 'Antártida', 0),
+(89, 3, 'América del Sur', 0),
+(89, 4, 'África', 0),
+
+(90, 1, 'Monte Everest', 1),
+(90, 2, 'Monte Fuji', 0),
+(90, 3, 'Monte Kilimanjaro', 0),
+(90, 4, 'Monte Aconcagua', 0);
+
+-- Respuestas para Arte
+INSERT INTO Respuestas (IdPregunta, Opcion, Contenido, Correcta) VALUES
+(106, 1, 'Miguel Ángel', 1),
+(106, 2, 'Rafael', 0),
+(106, 3, 'Leonardo da Vinci', 0),
+(106, 4, 'Donatello', 0),
+
+(107, 1, 'Claude Monet', 1),
+(107, 2, 'Vincent van Gogh', 0),
+(107, 3, 'Paul Cézanne', 0),
+(107, 4, 'Henri Matisse', 0),
+
+(108, 1, 'El nacimiento de Venus', 1),
+(108, 2, 'La Gioconda', 0),
+(108, 3, 'La Última Cena', 0),
+(108, 4, 'La creación de Adán', 0),
+
+(109, 1, 'Surrealismo', 1),
+(109, 2, 'Cubismo', 0),
+(109, 3, 'Impresionismo', 0),
+(109, 4, 'Expresionismo', 0),
+
+(110, 1, 'El Guernica', 1),
+(110, 2, 'La persistencia de la memoria', 0),
+(110, 3, 'Las Meninas', 0),
+(110, 4, 'El Jardín de las Delicias', 0);
+
+-- Respuestas para Cultura General
+INSERT INTO Respuestas (IdPregunta, Opcion, Contenido, Correcta) VALUES
+(126, 1, 'Cristobal Colón', 1),
+(126, 2, 'Américo Vespucio', 0),
+(126, 3, 'Vasco da Gama', 0),
+(126, 4, 'Hernán Cortés', 0),
+
+(127, 1, 'Chichen Itza', 1),
+(127, 2, 'Machu Picchu', 0),
+(127, 3, 'Teotihuacan', 0),
+(127, 4, 'Tikal', 0),
+
+(128, 1, 'Dragón', 1),
+(128, 2, 'Tigre', 0),
+(128, 3, 'Serpiente', 0),
+(128, 4, 'Fénix', 0),
+
+(129, 1, 'Cielo', 1),
+(129, 2, 'Tierra', 0),
+(129, 3, 'Mar', 0),
+(129, 4, 'Fuego', 0),
+
+(130, 1, 'Ottawa', 1),
+(130, 2, 'Toronto', 0),
+(130, 3, 'Vancouver', 0),
+(130, 4, 'Montreal', 0)
