@@ -1,18 +1,29 @@
 ﻿<h2 class="position-absolute top-0 start-0 m-2 text-white">@ViewBag.username</h2>
 <h2 class="position-absolute top-0 end-0 m-2 text-white">@ViewBag.puntaje</h2>
-<h1 class="text-primary">Spin!</h1>
+<h1 class="text-primary spin">Spin!</h1>
 <div class="wheel-container position-relative">
    <button id="spin">Spin</button>
    <div class="wheel">
       <div class="one"><img src="~/img/ciencia.gif" alt="" width="110" /></div>
       <div class="two"><img src="~/img/hist.gif" alt="" width="200" /></div>
       <div class="three"><img src="~/img/dep.gif" alt="" width="180" /></div>
-      <div class="four"><img src="~/img/art.gif" alt="" width="70" /></div>
-      <div class="five"><img src="~/img/cine.gif" alt="" width="200" /></div>
-      <div class="six"><img src="~/img/Corona.webp" alt="" width="70" /></div>
-      <div class="seven"><img src="~/img/geo.gif" alt="" width="70" /></div>
+      <div class="four"><img src="~/img/cine.gif" alt="" width="200" /></div>
+      <div class="five"><img src="~/img/geo.gif" alt="" width="70" /></div>
+      <div class="six"><img src="~/img/art.gif" alt="" width="70" /></div>
+      <div class="seven"><img src="~/img/Corona.webp" alt="" width="70" /></div>
    </div>
 </div>
-<form action='@Url.Action("VerificarRespuesta")' method="post">
+<form action='@Url.Action("VerificarRespuesta")' method="post" style="display: none;">
+   <img src="@ViewBag.pregunta.Foto" alt="Foto" />
+   <h1 class="text-white">@ViewBag.pregunta.Enunciado</h1>
+   <input name="idPregunta" id="idPregunta" value="@ViewBag.pregunta.IdPregunta" class="d-none"/>
+   @foreach (Respuesta r in ViewBag.respuestas)
+   {
+      <input type="radio" name="idRespuesta" id="@r.IdRespuesta" value="@r.IdRespuesta" class="d-none" />
+      <label for="@r.IdRespuesta" class="button2 m-2" >@r.Contenido</label>
+   }
 </form>
+<script>
+   const CAT = @ViewBag.pregunta.IdCategoria;
+</script>
 <script src="~/js/script.js"></script>

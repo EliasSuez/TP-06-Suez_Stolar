@@ -8,62 +8,33 @@ const btn = document.getElementById('spin');
 const main = document.querySelector('main');
 const form = main.querySelector('form');
 const wc = document.querySelector('.wheel-container');
+const spin = document.querySelector('.spin');
+
+const rtas = document.querySelectorAll('input[name="idRespuesta"]');
+
 let i = 1;
 
+console.log(CAT);
 btn.onclick = function () {
-   let number = getNumber();
-   wheel.style.rotate = number[1] + ROTATION * i + 'deg';
-   console.log(number[0]);
-   // setTimeout(() => {
-   // container.style.top = '-100px';
-   wc.style.display = 'none';
-   // btn.style.top =
-   //    Number(
-   //       getComputedStyle(btn).top.substring(
-   //          0,
-   //          getComputedStyle(btn).top.length - 2
-   //       )
-   //    ) -
-   //    100 +
-   //    'px';
-   const h1 = document.createElement('h1');
-   h1.textContent = 'Cuantos goles metio gusa en 2020?';
-   h1.classList.add('text-white');
-   form.appendChild(h1);
-   for (var i = 0; i < 4; i++) {
-      option = createOption('20');
-      form.appendChild(option);
-   }
-   // }, 5000);
-   // setTimeout(() => {
-   //    container.style.rotate = 0 + 'deg';
-   // }, 6000);
-   // division[number[0] - 1].style.backgroundColor = 'blue';
+   let v = -parseInt((CAT - 1) * (360 / OPTIONS_CANT) + ROTATION) + 'deg';
+   console.log(v);
+   wheel.style.rotate = v;
+   setTimeout(() => {
+      wc.style.display = 'none';
+      spin.style.display = 'none';
+      form.style.display = 'flex';
+      console.log(rtas);
+   }, 5000);
+   setTimeout(() => {
+      container.style.rotate = 0 + 'deg';
+   }, 6000);
    console.log(division);
    i++;
 };
+console.log(form.action);
 
-function getNumber() {
-   n = Math.ceil(Math.random() * OPTIONS_CANT) - 1;
-   if (n <= 0) n = 0;
-   let r = (365 / OPTIONS_CANT) * n;
-   // if (n === 5) r =
-   // n = OPTIONS_CANT - 1 - n;
-   // if (n == 7) n = 0;
-   return [n, r];
-}
-
-function createOption(value) {
-   r = document.createElement('button');
-   r.type = 'submit';
-   r.value = value;
-   r.classList.add('button2', 'm-2');
-   r.textContent = value;
-   r.href = 'https://www.youtube.com';
-   r.addEventListener('click', (e) => {
-      // e.preventDefault();
-      console.log(e.target.href);
-      console.log('Gusa');
+rtas.forEach((rta) => {
+   rta.addEventListener('click', () => {
+      form.submit();
    });
-   return r;
-}
+});
