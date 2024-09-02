@@ -13,8 +13,11 @@
       <div class="seven"><img src="~/img/Corona.webp" alt="" width="70" /></div>
    </div>
 </div>
-<form action='@Url.Action("VerificarRespuesta")' method="post" style="display: none;">
-   <img src="@ViewBag.pregunta.Foto" alt="Foto" />
+<form action='@Url.Action("VerificarRespuesta")' method="post" style="display: none;" id="respuesta">
+   @if(ViewBag.pregunta.Foto != null)
+   {
+      <img src="@ViewBag.pregunta.Foto" alt="Foto" />
+   }
    <h1 class="text-white">@ViewBag.pregunta.Enunciado</h1>
    <input name="idPregunta" id="idPregunta" value="@ViewBag.pregunta.IdPregunta" class="d-none"/>
    @foreach (Respuesta r in ViewBag.respuestas)
@@ -23,6 +26,7 @@
       <label for="@r.IdRespuesta" class="button2 m-2" >@r.Contenido</label>
    }
 </form>
+<a class="button m-4 d-none" id="sp" href='@Url.Action("Jugar")'>Siguiente pregunta</a>
 <script>
    const CAT = @ViewBag.pregunta.IdCategoria;
 </script>

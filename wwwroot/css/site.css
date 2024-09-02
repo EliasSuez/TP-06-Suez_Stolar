@@ -8,6 +8,7 @@
 * {
    box-sizing: border-box;
    font-family: 'Positive';
+   /* cursor: url('../../img/cursor.png'), auto; */
 }
 
 body {
@@ -55,53 +56,37 @@ body {
 .wheel .three {
    background-color: #ff9000;
    transform: rotate(calc(360deg / 7 * 2));
-   /* transform: rotate(90deg); */
 }
 .wheel .four {
-   background-color: #ff2330;
+   background-color: #fe53b6;
    transform: rotate(calc(360deg / 7 * 3));
-   /* transform: rotate(135deg); */
 }
 .wheel .five {
-   background-color: #fe53b6;
+   background-color: #027bdb;
    transform: rotate(calc(360deg / 7 * 4));
-   /* transform: rotate(180deg); */
 }
 .wheel .six {
-   background-color: #b64cd6;
+   background-color: #ff2330;
    transform: rotate(calc(360deg / 7 * 5));
-   /* transform: rotate(225deg); */
 }
 .wheel .seven {
-   background-color: #027bdb;
+   background: rgb(131, 58, 180);
+   background: linear-gradient(
+      90deg,
+      rgba(131, 58, 180, 1) 0%,
+      rgba(253, 29, 29, 1) 56%,
+      rgba(253, 32, 30, 1) 57%,
+      rgba(131, 58, 180, 1) 100%
+   );
    transform: rotate(calc(360deg / 7 * 6));
-   /* transform: rotate(270deg); */
-}
-.wheel .eight {
-   background: linear-gradient(to right, #ff7e5f, #feb47b, #ff6f61, #d4a5a5);
-   /* transform: rotate(360deg / 7 * 7); */
-   /* transform: rotate(315deg); */
-   animation: anim 1s infinite;
+   background-position: -100px -100px;
+   animation: anim 0.5s infinite ease-in-out;
 }
 
 @keyframes anim {
-   50% {
-      /* background: color-mix(in hsl, lightblue, red); */
+   100% {
       background-position: 100px 100px;
    }
-}
-
-.arrow {
-   position: absolute;
-   margin-top: 6%;
-   left: 48.5%;
-   transform: translateX(-50%);
-   color: #fff;
-}
-
-.arrow::before {
-   content: '\1F817';
-   font-size: 50px;
 }
 
 #spin {
@@ -121,8 +106,26 @@ body {
    translate: -50% -50%;
 }
 
+#spin::after {
+   content: '';
+   padding: 15px;
+   position: absolute;
+   background-color: #fff;
+   translate: -50% -50%;
+   left: 50%;
+   top: 0%;
+   /* rotate: 45deg; */
+   z-index: -10;
+   clip-path: polygon(50% 0, 100% 50%, 50% 50%, 0 50%);
+   transition: background-color 0.2s;
+}
+
 #spin:hover {
    border-color: #a2a2a2;
+}
+
+#spin:hover::after {
+   background-color: #a2a2a2;
 }
 
 main {
@@ -139,7 +142,7 @@ main {
    all: unset;
    background-color: #ef9b38;
    color: white;
-   padding: 15px 100px;
+   padding: 15px 50px;
    border-radius: 50px;
    font-size: 2.5rem;
    box-shadow: inset 0 -10px 8px #00000033;
@@ -157,7 +160,7 @@ main {
    padding: 10px 100px;
 }
 .button:hover,
-.button2:hover {
+.button2:not(.wrong, .right):hover {
    scale: 1.05;
    background-color: #da8e38;
 }
@@ -197,8 +200,8 @@ main form {
 .configLabels {
    color: white !important;
    background-color: #ef9b38;
-   height: 100px;
-   font-size: 2rem;
+   font-size: 1.5rem;
+   padding: 20px;
    margin: 10px;
    vertical-align: middle;
    align-content: center;
@@ -212,14 +215,10 @@ main form {
    background-color: green;
 }
 
-/* .configInputs#easy:checked + .configLabels {
-   background-color: lightblue;
-}
-
-.configInputs#medium:checked + .configLabels {
-   background-color: green;
-}
-
-.configInputs#hard:checked + .configLabels {
+.wrong {
    background-color: red;
-} */
+}
+
+.right {
+   background-color: rgb(97, 194, 97);
+}

@@ -1,9 +1,5 @@
-@* <img src="~/img/Logo.webp" class="m-5" />
-<a href='@Url.Action("Wheel", "Home")' class="button">JUGAR</a>
-<img src="~/img/hist.gif" class="camina" />
-<img src="~/img/piedra.webp" class="camina piedra" /> *@
 <form action='@Url.Action("Comenzar")' method="get" class="container">
-    <h1 class="text-white">Dificultad</h1>
+    <h1 class="text-white">Dificultad <span>(Dejar vacío para mezclar todas)</span></h1>
     <div class="row justify-content-center">
         @foreach (Dificultad d in ViewBag.dificultades)
         {
@@ -11,7 +7,7 @@
             <label for="@d.Nombre" class="configLabels col button">@d.Nombre</label>
         }
     </div>
-    <h1 class="text-white">Categoría</h1>
+    <h1 class="text-white">Categoría <span>(Dejar vacío para mezclar todas)</span></h1>
     <div class="row justify-content-center">
         @foreach (Categoria c in ViewBag.categorias)
         {

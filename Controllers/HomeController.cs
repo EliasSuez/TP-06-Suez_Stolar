@@ -57,10 +57,11 @@ public class HomeController : Controller
         return View();
     }
 
-    [HttpPost]
-    public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta)
+    // [HttpPost]
+    public JsonResult VerificarRespuesta(int idPregunta, int idRespuesta)
     {
-        ViewBag.correcta = Juego.VerificarRespuesta(idPregunta, idRespuesta);
-        return View("Respuesta");
+        int idCorrecta = Juego.ObtenerRespuestaCorrecta(idPregunta);
+        bool correcta = Juego.VerificarRespuesta(idPregunta, idRespuesta);
+        return new JsonResult(new { correcta = correcta, rCorrecta = idCorrecta });
     }
 }

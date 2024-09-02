@@ -6,35 +6,57 @@ const wheel = document.querySelector('.wheel');
 const division = wheel.querySelectorAll('div');
 const btn = document.getElementById('spin');
 const main = document.querySelector('main');
-const form = main.querySelector('form');
+const form = document.getElementById('respuesta');
 const wc = document.querySelector('.wheel-container');
 const spin = document.querySelector('.spin');
-
+const sp = document.getElementById('sp');
 const rtas = document.querySelectorAll('input[name="idRespuesta"]');
-
+const labels = form.querySelectorAll('label');
+let answered = false;
 let i = 1;
 
-console.log(CAT);
 btn.onclick = function () {
    let v = -parseInt((CAT - 1) * (360 / OPTIONS_CANT) + ROTATION) + 'deg';
-   console.log(v);
    wheel.style.rotate = v;
    setTimeout(() => {
       wc.style.display = 'none';
       spin.style.display = 'none';
       form.style.display = 'flex';
-      console.log(rtas);
    }, 5000);
    setTimeout(() => {
       container.style.rotate = 0 + 'deg';
    }, 6000);
-   console.log(division);
    i++;
 };
-console.log(form.action);
 
 rtas.forEach((rta) => {
-   rta.addEventListener('click', () => {
-      form.submit();
+   rta.addEventListener('click', async () => {
+      const data = {
+         idPregunta: document.getElementById('idPregunta').value,
+         idRespuesta: rta.value
+      };
+      const action =
+         form.action +
+         '?idPregunta=' +
+         data.idPregunta +
+         '&idRespuesta=' +
+         data.idRespuesta;
+      if (!answered) {
+         fetch(action, {
+            method: 'GET',
+            headers: { 'Content-type': 'application/json; charset=UTF-8' }
+         })
+            .then((r) => r.json())
+            .then((j) => {
+               console.log(j);
+               labels.forEach((e) => {
+                  e.classList.add('wrong');
+                  if (parseInt(e.getAttribute('for')) === parseInt(j.rCorrecta))
+                     e.classList.add('right');
+               });
+               sp.classList.remove('d-none');
+            });
+         answered = true;
+      }
    });
 });

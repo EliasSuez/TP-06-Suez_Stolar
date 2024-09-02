@@ -53,4 +53,10 @@ public class Juego
         preguntas.Remove(preguntas.Find(p => p.IdPregunta == idPregunta));
         return r;
     }
+
+    public static int ObtenerRespuestaCorrecta(int idPregunta)
+    {
+        int idCorrecta = respuestas.Find(re => re.Correcta == true && re.IdPregunta == idPregunta).IdRespuesta;
+        return idCorrecta;
+    }
 }
