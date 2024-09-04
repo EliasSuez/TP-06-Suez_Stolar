@@ -1,0 +1,23 @@
+<h1 class="text-white">High Scores</h1>
+<br />
+<table class="table w-50 table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Username</th>
+            <th>Puntaje</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Puntajes p in ViewBag.puntajes)
+        {
+            <tr>
+                <td class="text-primary">@p.Id</td>
+                <td class="text-primary">@p.Username</td>
+                <td class="text-primary">@p.Puntaje</td>
+                <td class="text-primary">@p.Fecha</td>
+            </tr>
+        }
+    </tbody>
+</table>

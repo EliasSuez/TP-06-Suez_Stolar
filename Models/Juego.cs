@@ -59,4 +59,8 @@ public class Juego
         int idCorrecta = respuestas.Find(re => re.Correcta == true && re.IdPregunta == idPregunta).IdRespuesta;
         return idCorrecta;
     }
+
+    public static void GuardarPuntajes(){
+        BD.InsertarPuntaje(username, puntajeActual);
+    }
 }

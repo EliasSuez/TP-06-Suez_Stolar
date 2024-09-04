@@ -51,6 +51,13 @@ CREATE TABLE Respuestas (
     Foto VARCHAR(255),
 );
 
+CREATE TABLE Puntajes (
+	Id INT NOT NULL PRIMARY KEY IDENTITY(1, 1),
+	Username VARCHAR(50) NOT NULL,
+	Puntaje INT NOT NULL,
+	Fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
 -- INSERTS
 
 -- Insertar categorías

@@ -49,4 +49,22 @@ public class BD
             r = db.Query<Respuesta>(query).ToList();
         return r;
     }
+
+    public static void InsertarPuntaje(string username, int puntaje)
+    {
+        string query = "INSERT INTO Puntajes(Username, Puntaje) VALUES (@username, @puntaje)";
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            db.Execute(query, new { username = username, puntaje = puntaje });
+        }
+    }
+
+    public static List<Puntajes> ObtenerPuntajes()
+    {
+        string query = "SELECT * FROM Puntajes ORDER BY Puntaje DESC";
+        List<Puntajes> r;
+        using (SqlConnection db = new SqlConnection(_connectionString))
+            r = db.Query<Puntajes>(query).ToList();
+        return r;
+    }
 }

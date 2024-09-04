@@ -30,16 +30,16 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Comenzar(string username, int dificultad, int categoria)
+    public IActionResult Comenzar(string username, int dif, int cat)
     {
-        if (dificultad == 0)
-            dificultad = -1;
-        if (categoria == 0)
-            categoria = -1;
+        if (dif == 0)
+            dif = -1;
+        if (cat == 0)
+            cat = -1;
         Console.WriteLine(username);
-        Console.WriteLine(dificultad);
-        Console.WriteLine(categoria);
-        Juego.CargarPartida(username, dificultad, categoria);
+        Console.WriteLine(dif);
+        Console.WriteLine(cat);
+        Juego.CargarPartida(username, dif, cat);
         if (Juego.preguntas.Count() == 0)
             return RedirectToAction("ConfigurarJuego");
         return RedirectToAction("Jugar");
@@ -48,7 +48,7 @@ public class HomeController : Controller
     public IActionResult Jugar()
     {
         if (Juego.preguntas.Count() == 0)
-            return View("Fin");
+            return RedirectToAction("Fin");
         Pregunta p = Juego.ObtenerProximaPregunta();
         ViewBag.username = Juego.username;
         ViewBag.puntaje = Juego.puntajeActual;
@@ -63,5 +63,19 @@ public class HomeController : Controller
         int idCorrecta = Juego.ObtenerRespuestaCorrecta(idPregunta);
         bool correcta = Juego.VerificarRespuesta(idPregunta, idRespuesta);
         return new JsonResult(new { correcta = correcta, rCorrecta = idCorrecta });
+    }
+
+    public IActionResult Fin()
+    {
+        Juego.GuardarPuntajes();
+        ViewBag.username = Juego.username;
+        ViewBag.puntaje = Juego.puntajeActual;
+        return View();
+    }
+
+    public IActionResult HighScores()
+    {
+        ViewBag.puntajes = BD.ObtenerPuntajes();
+        return View();
     }
 }
