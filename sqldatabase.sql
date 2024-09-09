@@ -5,22 +5,22 @@ USE PreguntadOrt;
 
 -- SP
 
-GO;
+
 CREATE PROCEDURE SP_ObtenerPreguntas
-	@idDificultad INT = -1,
-	@idCategoria INT = -1
+    @idDificultad INT = -1,
+    @idCategoria INT = -1
 AS
 BEGIN
-	IF (@idDificultad = -1 AND @idCategoria = -1)
-		SELECT * FROM Preguntas;
-	ELSE IF (@idDificultad = -1)
-		SELECT * FROM Preguntas WHERE IdCategoria = @idCategoria;
-	ELSE IF (@idCategoria = -1)
-		SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad;
-	ELSE
-		SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad AND IdCategoria = @idCategoria;
+    IF (@idDificultad = -1 AND @idCategoria = -1)
+        SELECT * FROM Preguntas;
+    ELSE IF (@idDificultad = -1)
+        SELECT * FROM Preguntas WHERE IdCategoria = @idCategoria;
+    ELSE IF (@idCategoria = -1)
+        SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad;
+    ELSE
+        SELECT * FROM Preguntas WHERE IdDificultad = @idDificultad AND IdCategoria = @idCategoria;
 END;
-
+GO
 -- CREACIÓN DE TABLAS
 
 CREATE TABLE Categorias (
