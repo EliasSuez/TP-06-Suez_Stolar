@@ -1,4 +1,13 @@
-<img src="~/img/Logo.webp" class="m-5" />
+ <input type="checkbox" id="hmenu" class="d-none position-absolute" >
+    <label for="hmenu" id="lmenu" class="position-absolute start-0 top-0" style="width: 50px;"><img style="width: 50px;" src="https://cdn.icon-icons.com/icons2/1875/PNG/512/hamburgermenu_120234.png" alt="Menu" /></label>
+    <aside>
+        <a href='@Url.Action("HighScores")'>HighScores</a>
+        <a href='@Url.Action("Index")'>Home</a>
+    </aside>
+
+
+<img src="~/img/Logo.webp"  />
+<h1 class="Titulo">Preguntados</h1>
 <a href='@Url.Action("ConfigurarJuego", "Home")' class="button">JUGAR</a>
 <img src="~/img/hist.gif" class="camina" />
 <img src="~/img/piedra.webp" class="camina piedra" />

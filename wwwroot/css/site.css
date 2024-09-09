@@ -245,3 +245,10 @@ aside{
    z-index: 10;
    user-select: none;
 }
+
+.Titulo{
+   text-shadow: 2px 2px 4px rgba(54, 34, 34, 0.6);
+   color: #D3D3D3; /* Gris claro */
+   font-size: 7rem;
+   text-align: center;
+}

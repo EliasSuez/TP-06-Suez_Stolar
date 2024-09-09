@@ -36,9 +36,6 @@ public class HomeController : Controller
             dif = -1;
         if (cat == 0)
             cat = -1;
-        Console.WriteLine(username);
-        Console.WriteLine(dif);
-        Console.WriteLine(cat);
         Juego.CargarPartida(username, dif, cat);
         if (Juego.preguntas.Count() == 0)
             return RedirectToAction("ConfigurarJuego");
