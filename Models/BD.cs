@@ -61,7 +61,7 @@ public class BD
 
     public static List<Puntajes> ObtenerPuntajes()
     {
-        string query = "SELECT * FROM Puntajes ORDER BY Puntaje DESC";
+        string query = "SELECT TOP 10 * FROM Puntajes ORDER BY Puntaje DESC";
         List<Puntajes> r;
         using (SqlConnection db = new SqlConnection(_connectionString))
             r = db.Query<Puntajes>(query).ToList();
